@@ -30,18 +30,19 @@ const LockBody = createGlobalStyle`
 
 const Hamburger: React.FC<HamburgerProps> = (props) => {
   const { showNav, setShowNav } = props;
+  const pathname = usePathname();
 
   return (
-    <label htmlFor="check" className="hamburger">
+    <label htmlFor="check" className={`hamburger`}>
       <input
         type="checkbox"
         checked={showNav}
         onChange={() => setShowNav((state) => !state)}
         id="check"
       />
-      <span></span>
-      <span></span>
-      <span></span>
+      <span className={`${pathname === "/xnd-app" && "!bg-white"}`}></span>
+      <span className={`${pathname === "/xnd-app" && "!bg-white"}`}></span>
+      <span className={`${pathname === "/xnd-app" && "!bg-white"}`}></span>
     </label>
   );
 };
@@ -111,7 +112,7 @@ const MobileSideBar: React.FC<IProps> = ({
           {navlinks.map((navlink, id) => (
             <li
               key={id}
-              className={`${pathname === navlink.route ? "text-p-400" : "text-p-600"
+              className={`${pathname === "/xnd-app" ? "text-white" : pathname === navlink.route ? "text-p-400" : "text-p-600"
                 }`}
             >
               {navlink.name === "Become a merchant" ? (
@@ -132,7 +133,7 @@ const MobileSideBar: React.FC<IProps> = ({
                         : "rotate-0"
                         } transiton-all duration-150`}
                     >
-                      <Image src="/assets/icons/caret-down.svg" alt="caret-down" width={16} height={16}/>
+                      <Image src="/assets/icons/caret-down.svg" alt="caret-down" width={16} height={16} />
                     </span>
                   </div>
                   <AnimatePresence>
@@ -151,12 +152,19 @@ const MobileSideBar: React.FC<IProps> = ({
         </ul>
         <div className="mt-4 divide-y divide-g-300 py-4">
           <div className="p-3">
-            <Link
-              href="/register"
-              className="text-white bg-main-primary w-28 lg:w-32 h-10 text-center flex items-center justify-center rounded-3xl"
-            >
-              Go to app
-            </Link>
+            {pathname === "/xnd-app" ?
+              (<Link
+                href="/login"
+                className="text-black bg-white w-28 lg:w-32 h-10 text-center flex items-center justify-center hover:bg-opacity-90 rounded-3xl"
+              >
+                Login
+              </Link>) :
+              (<Link
+                href="/register"
+                className="text-white bg-main-primary w-28 lg:w-32 h-10 text-center flex items-center justify-center hover:bg-opacity-90 rounded-3xl"
+              >
+                Go to app
+              </Link>)}
           </div>
         </div>
       </div>

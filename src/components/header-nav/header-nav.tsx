@@ -12,7 +12,7 @@ import { AnimatePresence } from "framer-motion";
 import BMerchant from "../become-a-merchant";
 import Image from "next/image";
 
-export default function HeaderNav({bgColor = "bg-p-50"}:{bgColor?: string; }) {
+export default function HeaderNav({ bgColor = "bg-p-50" }: { bgColor?: string; }) {
   const pathname = usePathname();
   const [showMerchantForm, setShowMerchantForm] = useState(false);
   const [dropdown, setDropdown] = useState<DropdownState>({
@@ -24,6 +24,8 @@ export default function HeaderNav({bgColor = "bg-p-50"}:{bgColor?: string; }) {
   const onMouseLeaveDropdown = (id: number) =>
     setDropdown({ state: false, id: null });
 
+  console.log(pathname)
+
   return (
     <header>
       <nav className={`container-padding-x ${bgColor}`}>
@@ -33,6 +35,7 @@ export default function HeaderNav({bgColor = "bg-p-50"}:{bgColor?: string; }) {
           <MobileSideBar
             setShowMerchantForm={setShowMerchantForm}
             showMerchantForm={showMerchantForm}
+            bgColor={pathname === "/xnd-app" ? "bg-black" : "bg-white"}
           />
           {showMerchantForm && (
             <BMerchant
@@ -44,7 +47,7 @@ export default function HeaderNav({bgColor = "bg-p-50"}:{bgColor?: string; }) {
             {navlinks.map((navlink, id) => (
               <li
                 key={id}
-                className={`${pathname === navlink.route ? "text-p-400" : "text-p-600"
+                className={`${pathname === "/xnd-app" ? "text-white" : pathname === navlink.route ? "text-p-400" : "text-p-600"
                   } hover:text-p-400 flex justify-center flex-col mx-2 xl:mx-3 relative`}
               >
                 {navlink.name === "Apply as merchant" ? (
@@ -55,7 +58,6 @@ export default function HeaderNav({bgColor = "bg-p-50"}:{bgColor?: string; }) {
                   </button>
                 ) : navlink.dropdownItems ? (
                   <div
-                    className=""
                     onMouseEnter={() => onMouseEnterDropdown(id)}
                     onMouseLeave={() => onMouseLeaveDropdown(id)}
                   >
@@ -90,12 +92,19 @@ export default function HeaderNav({bgColor = "bg-p-50"}:{bgColor?: string; }) {
             ))}
           </ul>
           <div className="lg:flex flex-row gap-2 lg:gap-3 xl:gap-5 items-center hidden">
-            <Link
-              href="/register"
-              className="text-white bg-main-primary w-28 lg:w-32 h-10 text-center flex items-center justify-center hover:bg-opacity-90 rounded-3xl"
-            >
-              Go to app
-            </Link>
+            {pathname === "/xnd-app" ?
+              (<Link
+                href="/login"
+                className="text-black bg-white w-28 lg:w-32 h-10 text-center flex items-center justify-center hover:bg-opacity-90 rounded-3xl"
+              >
+                Login
+              </Link>) :
+              (<Link
+                href="/register"
+                className="text-white bg-main-primary w-28 lg:w-32 h-10 text-center flex items-center justify-center hover:bg-opacity-90 rounded-3xl"
+              >
+                Go to app
+              </Link>)}
           </div>
         </div>
       </nav>
