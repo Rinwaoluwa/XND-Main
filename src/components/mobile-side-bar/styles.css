@@ -1,0 +1,42 @@
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  width: 1.75rem;
+  cursor: pointer;
+}
+.hamburger > span {
+  background: #031425;
+  border-radius: 0.375rem;
+  height: 0.15rem;
+  margin: 0.1rem 0;
+  transition: 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+.hamburger > span:nth-of-type(1) {
+  width: 50%;
+}
+
+.hamburger > span:nth-of-type(2) {
+  width: 100%;
+}
+
+.hamburger > span:nth-of-type(3) {
+  width: 75%;
+}
+
+.hamburger > input[type='checkbox'] {
+  display: none;
+}
+.hamburger > input[type='checkbox']:checked ~ span:nth-of-type(1) {
+  transform-origin: bottom;
+  transform: rotatez(45deg) translate(1px, -1px);
+}
+.hamburger > input[type='checkbox']:checked ~ span:nth-of-type(2) {
+  transform-origin: top;
+  transform: rotatez(-45deg);
+}
+.hamburger > input[type='checkbox']:checked ~ span:nth-of-type(3) {
+  transform-origin: bottom;
+  width: 50%;
+  transform: translate(11px, -2px) rotatez(45deg);
+}
