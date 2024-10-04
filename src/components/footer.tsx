@@ -1,9 +1,13 @@
+"use client"
+
 import Image from "next/image";
 import { socials } from "@/fixtures/socials";
 import { footerGroups } from "@/fixtures/footerGroups";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Footer() {
+  const pathname = usePathname();
   return (
     <footer className="bg-black container-padding-x container-padding-y text-white text-center">
       <div
@@ -39,10 +43,9 @@ export default function Footer() {
             ))}
           </div>
         </div>
-        <div className="col-span-12 md:col-span-6 lg:col-span-2"></div>
         {footerGroups.map((group, id) => (
-          <div className="col-span-12 md:col-span-6 lg:col-span-2" key={id}>
-            <h6 className="text-p-400 text-[1.2rem] font-[600] mb-5">
+          <div className="col-span-12 md:col-span-4 lg:col-span-2" key={id}>
+            <h6 className={`${pathname === "/xnd-app" ? "text-[#FBBD08]": "text-p-400"} text-[1.2rem] font-[600] mb-5`}>
               {group.header}
             </h6>
             <div className="flex flex-col gap-3 lg:gap-4">

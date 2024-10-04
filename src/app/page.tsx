@@ -47,7 +47,6 @@ export default function Home() {
             </div>
             <h1 className="text-blue text-4xl md:text-6xl font-bold">
               Trade gift cards securely,
-              <br />
             </h1>
             {/* TEXT ANIMATION */}
             <p className="text-xl text-gray-600 max-w-2xl">

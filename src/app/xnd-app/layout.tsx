@@ -14,7 +14,9 @@ export default function XndAppLayout({
   return (
     <>
       <HeaderNav bgColor='bg-black' />
-      {children}
+      <main>
+        {children}
+      </main>
     </>
   )
 }

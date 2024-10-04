@@ -73,6 +73,38 @@ input[type="checkbox"]:checked ~ .form-input__checkbox-decor-img {
   width: 100%;
 }
 
+.group-lines-down {
+  background-image: url("/assets/icons/lines-down.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 100%;
+  width: 100%;
+}
+
+.group-lines-up {
+  background-image: url("/assets/icons/lines-up.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 100%;
+  width: 100%;
+}
+
+.group-lines-1 {
+  background-image: url("/assets/images/group54847.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 100%;
+  width: 100%;
+}
+
+.group-lines-2 {
+  background-image: url("/assets/images/group54845.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 100%;
+  width: 100%;
+}
+
 .gradient-1 {
   background-image: linear-gradient(to bottom, #f1f6fb, #ffffff2e);
   filter: blur(10px);

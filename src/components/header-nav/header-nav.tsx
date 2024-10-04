@@ -24,8 +24,6 @@ export default function HeaderNav({ bgColor = "bg-p-50" }: { bgColor?: string; }
   const onMouseLeaveDropdown = (id: number) =>
     setDropdown({ state: false, id: null });
 
-  console.log(pathname)
-
   return (
     <header>
       <nav className={`container-padding-x ${bgColor}`}>
@@ -48,7 +46,7 @@ export default function HeaderNav({ bgColor = "bg-p-50" }: { bgColor?: string; }
               <li
                 key={id}
                 className={`${pathname === "/xnd-app" ? "text-white" : pathname === navlink.route ? "text-p-400" : "text-p-600"
-                  } hover:text-p-400 flex justify-center flex-col mx-2 xl:mx-3 relative`}
+                  } hover:text-p-400 flex justify-center flex-col mx-2 xl:mx-3`}
               >
                 {navlink.name === "Apply as merchant" ? (
                   <button
