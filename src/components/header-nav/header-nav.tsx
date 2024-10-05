@@ -82,10 +82,6 @@ export default function HeaderNav({ bgColor = "bg-p-50" }: { bgColor?: string; }
                     <Link href={navlink.route}>{navlink.name}</Link>
                   </div>
                 )}
-                <div
-                  className={`${pathname === navlink.route ? "w-full" : "w-0"
-                    } border-t border-p-400 transition-all absolute -bottom-[2px] left-1/2 -translate-x-1/2`}
-                ></div>
               </li>
             ))}
           </ul>
