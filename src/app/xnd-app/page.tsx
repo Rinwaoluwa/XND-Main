@@ -1,7 +1,7 @@
 "use client"
 
 import React from 'react';
-import { animate, AnimatePresence, motion, useCycle } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from 'next/image';
 import Cta from '@/components/xnd/cta';
 import { apartContent } from '@/fixtures/apart';
