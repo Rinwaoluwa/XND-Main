@@ -27,7 +27,7 @@ export default function AnimatedLinkButton(
             animate?: AnimationControls | TargetAndTransition | VariantLabels | boolean;
         }) {
     return (
-        <Link href={href} className="bg-main-primary w-full max-w-[158px] mr-8 text-white text-lg font-[400] px-2 py-3 rounded-3xl hover:bg-blue transition duration-300 flex items-center justify-center gap-2">
+        <Link href={href} className="bg-main-primary w-full max-w-[158px] mr-8 text-white text-lg font-[400] px-2 py-2 rounded-3xl hover:bg-blue transition duration-300 flex items-center justify-center gap-2">
             <p>{children}</p>
             <motion.div
                 variants={variant}

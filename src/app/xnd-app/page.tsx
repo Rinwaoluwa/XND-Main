@@ -8,6 +8,7 @@ import { apartContent } from '@/fixtures/apart';
 import Link from 'next/link';
 import Faqs from '@/components/faqs';
 import Footer from '@/components/footer';
+import AnimatedLinkButton from '@/components/animatedButton';
 
 const pageAnimationVariant = {
     initial: {
@@ -87,16 +88,16 @@ export default function XndApp() {
                 <div className="flex flex-col gap-4 items-center py-8 px-12">
                     <h2 className="text-2xl md:text-4xl font-[600]">Start trading</h2>
                     <p>Begin the process of selling your gift cards for USDT on XND.</p>
-                    <Link
-                        href="/login"
+                    <AnimatedLinkButton href="/login">Start here</AnimatedLinkButton>
+                    {/* <Link
+
                         className="text-white py-2 px-4 w-fit lg:w-40 bg-main-primary lg:w-32 h-10 text-center flex items-center justify-center gap-2 hover:bg-opacity-90 rounded-3xl"
                     >
-                        Start here
                         <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M2.5 8.5H13.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                             <path d="M9 4L13.5 8.5L9 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
-                    </Link>
+                    </Link> */}
                     <div className={`relative bg-[#F0F5FA] px-12 pt-12 w-[400px] lg:w-[60%] rounded-2xl flex justify-center`}>
                         <div className="absolute group-lines-1 -top-0"></div>
                         <Image src="/assets/images/laptop-2.png" className="z-20" alt="" width={700} height={445} />
