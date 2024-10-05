@@ -41,7 +41,7 @@ const ServicesDropdown = () => {
       initial="initial"
       animate="animate"
       exit="exit"
-      className="absolute bg-cream rounded-2xl lg:min-w-[600px] top-[50px] lg:top-[30px]"
+      className="absolute z-[999] bg-cream rounded-2xl lg:min-w-[600px] top-[50px] lg:top-[30px]"
     >
       <div className={isMobile ? "" : "flex justify-between"}>
         <div>
