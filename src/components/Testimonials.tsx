@@ -59,7 +59,7 @@ export default function Testimonials() {
 
     return (
         <section className="py-8 overflow-hidden">
-            <div className="container">
+            <div className="flex flex-col items-center">
                 <h2 className="text-3xl font-bold text-center mb-2">What are people saying about us</h2>
                 <p className="text-center text-sm text-gray-600 mb-12">Our customers love the simplicity and security of trading with us.</p>
                 <div className="relative w-screen">
