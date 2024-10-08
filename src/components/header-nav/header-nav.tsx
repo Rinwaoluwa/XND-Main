@@ -27,7 +27,12 @@ export default function HeaderNav() {
 
   return (
     <header>
-      <nav className={`container-padding-x ${pathname === "/xnd-app" ? "bg-black" : "bg-p-50"}`}>
+      <nav
+        className={`container-padding-x ${
+        pathname === "/xnd-app" ? "bg-black" :
+        ["/terms", "/privacy"].map((route: string) => route === pathname ? "bg-white":"bg-p-50") }`
+        }
+      >
         <div className="flex flex-row items-center justify-between">
           <LandingLogo />
 
