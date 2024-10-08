@@ -1,10 +1,9 @@
 import Footer from "@/components/footer";
 import JoinCommunity from "@/components/JoinCommunity";
 import { AboutUsContent } from "@/fixtures/apart";
-import { useRouter } from "next/navigation";
 
 export default function AboutUs() {
-  const router =  useRouter();
+
   return (
     <div aria-describedby="about us page">
       <section
