@@ -67,7 +67,7 @@ export default function XndApp() {
                             offering a seamless and secure transaction experience.
                         </p>
                         <Link
-                            href="/login"
+                            href="https://xnd-frontend.vercel.app/auth/login"
                             className="py-2 px-4 w-fit lg:w-40 bg-[#FBBD08] lg:w-32 h-10 text-center hover:opacity-70 rounded-3xl"
                         >
                             Get started
@@ -89,15 +89,6 @@ export default function XndApp() {
                     <h2 className="text-2xl md:text-4xl font-[600]">Start trading</h2>
                     <p>Begin the process of selling your gift cards for USDT on XND.</p>
                     <AnimatedLinkButton href="/login">Start here</AnimatedLinkButton>
-                    {/* <Link
-
-                        className="text-white py-2 px-4 w-fit lg:w-40 bg-main-primary lg:w-32 h-10 text-center flex items-center justify-center gap-2 hover:bg-opacity-90 rounded-3xl"
-                    >
-                        <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M2.5 8.5H13.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                            <path d="M9 4L13.5 8.5L9 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                    </Link> */}
                     <div className={`relative bg-[#F0F5FA] px-12 pt-12 w-[400px] lg:w-[60%] rounded-2xl flex justify-center`}>
                         <div className="absolute group-lines-1 -top-0"></div>
                         <Image src="/assets/images/laptop-2.png" className="z-20" alt="" width={700} height={445} />

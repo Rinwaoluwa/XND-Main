@@ -5,14 +5,16 @@ import { socials } from "@/fixtures/socials";
 import { footerGroups } from "@/fixtures/footerGroups";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useMerchantForm } from "@/lib/context/MerchantFormContext";
 
 export default function Footer() {
   const pathname = usePathname();
+  const { handleShowMerchantForm } = useMerchantForm();
   return (
     <footer className="bg-black container-padding-x container-padding-y text-white text-center">
       <div
         className="container-padding-y grid grid-cols-12 gap-x-3 gap-y-6 text-left"
-        aria-describedby="links"
+        aria-describedby="Footer"
       >
         <div className="col-span-12 lg:col-span-4 pr-6">
           <Link href="/" className="flex items-center mb-4">
@@ -45,15 +47,25 @@ export default function Footer() {
         </div>
         {footerGroups.map((group, id) => (
           <div className="col-span-12 md:col-span-4 lg:col-span-2" key={id}>
-            <h6 className={`${pathname === "/xnd-app" ? "text-[#FBBD08]": "text-p-400"} text-[1.2rem] font-[600] mb-5`}>
+            <h6 className={`${pathname === "/xnd-app" ? "text-[#FBBD08]" : "text-p-400"} text-[1.2rem] font-[600] mb-5`}>
               {group.header}
             </h6>
             <div className="flex flex-col gap-3 lg:gap-4">
-              {group.links.map((link, link_id) => (
-                <Link href={link.href} key={link_id}>
-                  {link.title}
-                </Link>
-              ))}
+              {group.links.map((link, link_id) => {
+                if (link.title === "Be a merchant") {
+                  return (
+                    <span className="cursor-pointer" key={link_id} onClick={() => handleShowMerchantForm(true)}>
+                      {link.title}
+                    </span>
+                  )
+                }
+                return (
+                  <Link href={link.href} key={link_id}>
+                    {link.title}
+                  </Link>
+                )
+              }
+              )}
             </div>
           </div>
         ))}

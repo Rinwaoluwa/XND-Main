@@ -89,7 +89,7 @@ export default function HeaderNav({ bgColor = "bg-p-50" }: { bgColor?: string; }
           <div className="lg:flex flex-row gap-2 lg:gap-3 xl:gap-5 items-center hidden">
             {pathname === "/xnd-app" ?
               (<Link
-                href="/login"
+                href="https://xnd-frontend.vercel.app/auth/login"
                 className="text-black bg-white w-28 lg:w-32 h-10 text-center flex items-center justify-center hover:bg-opacity-90 rounded-3xl"
               >
                 Login
