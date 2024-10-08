@@ -1,9 +1,6 @@
-"use client"
-
-import Button from "@/components/button";
 import Footer from "@/components/footer";
+import JoinCommunity from "@/components/JoinCommunity";
 import { AboutUsContent } from "@/fixtures/apart";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 export default function AboutUs() {
@@ -64,26 +61,9 @@ export default function AboutUs() {
           </div>
         </div>
       </section>
-      <section
-        aria-describedby="get started"
-        className="container-padding-x container-padding-y bg-p-600 text-center text-white"
-      >
-        <h2 className="section-header">Join our community today!</h2>
-        <p className="section-description">
-          Whether you have unwanted gift cards gathering dust or are in search
-          of great deals on gift cards and USDT, Exchange Next Door is here to
-          help. Join our thriving community of traders and start unlocking the
-          value of your digital assets today.
-        </p>
 
-        <div className="pt-8">
-          <Button
-            aria-describedby="get started button"
-            text="Get Started today"
-            onClick={() => router.push("/xnd-app")}
-          />
-        </div>
-      </section>
+      <JoinCommunity />
+
       <section className="container-padding-x container-padding-y text-center bg-[#E3E3E3]/10" aria-describedby="subscribe to newsletters" >
         <div className="mb-16">
           <h2 className="text-[1.35rem] md:text-[1.75rem] font-bold mb-4 text-main-primary">
