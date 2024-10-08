@@ -7,7 +7,7 @@ import Form from "./components/form";
 
 interface BMerchantProps {
   showMerchantForm: boolean;
-  setShowMerchantForm: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowMerchantForm: (show: boolean) => void;
 }
 
 interface IFormValues {

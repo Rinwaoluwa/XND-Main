@@ -11,10 +11,11 @@ import ServicesDropdown from "../service-dropdown";
 import { AnimatePresence } from "framer-motion";
 import BMerchant from "../become-a-merchant";
 import Image from "next/image";
+import { useMerchantForm } from "@/lib/context/MerchantFormContext";
 
 export default function HeaderNav({ bgColor = "bg-p-50" }: { bgColor?: string; }) {
   const pathname = usePathname();
-  const [showMerchantForm, setShowMerchantForm] = useState(false);
+  const {showMerchantForm, handleShowMerchantForm} = useMerchantForm();
   const [dropdown, setDropdown] = useState<DropdownState>({
     state: false,
     id: 0,
@@ -31,13 +32,13 @@ export default function HeaderNav({ bgColor = "bg-p-50" }: { bgColor?: string; }
           <LandingLogo />
 
           <MobileSideBar
-            setShowMerchantForm={setShowMerchantForm}
+            setShowMerchantForm={handleShowMerchantForm}
             showMerchantForm={showMerchantForm}
             bgColor={pathname === "/xnd-app" ? "bg-black" : "bg-white"}
           />
           {showMerchantForm && (
             <BMerchant
-              setShowMerchantForm={setShowMerchantForm}
+              setShowMerchantForm={handleShowMerchantForm}
               showMerchantForm={showMerchantForm}
             />
           )}
@@ -50,7 +51,7 @@ export default function HeaderNav({ bgColor = "bg-p-50" }: { bgColor?: string; }
               >
                 {navlink.name === "Apply as merchant" ? (
                   <button
-                    onClick={() => setShowMerchantForm(!showMerchantForm)}
+                    onClick={() => handleShowMerchantForm(!showMerchantForm)}
                   >
                     {navlink.name}
                   </button>
@@ -94,7 +95,7 @@ export default function HeaderNav({ bgColor = "bg-p-50" }: { bgColor?: string; }
                 Login
               </Link>) :
               (<Link
-                href="/register"
+                href="/xnd-app"
                 className="text-white bg-main-primary w-28 lg:w-32 h-10 text-center flex items-center justify-center hover:bg-opacity-90 rounded-3xl"
               >
                 Go to app
