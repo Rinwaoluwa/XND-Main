@@ -22,7 +22,6 @@ export default function Home() {
 
   return (
     <>
-      <HeaderNav />
       <main aria-describedby='home page' className='bg-p-50'>
         <section
           className='container-padding-x pt-12 landing-page-hero-image'

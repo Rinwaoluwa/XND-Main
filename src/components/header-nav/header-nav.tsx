@@ -13,7 +13,7 @@ import BMerchant from "../become-a-merchant";
 import Image from "next/image";
 import { useMerchantForm } from "@/lib/context/MerchantFormContext";
 
-export default function HeaderNav({ bgColor = "bg-p-50" }: { bgColor?: string; }) {
+export default function HeaderNav() {
   const pathname = usePathname();
   const {showMerchantForm, handleShowMerchantForm} = useMerchantForm();
   const [dropdown, setDropdown] = useState<DropdownState>({
@@ -27,7 +27,7 @@ export default function HeaderNav({ bgColor = "bg-p-50" }: { bgColor?: string; }
 
   return (
     <header>
-      <nav className={`container-padding-x ${bgColor}`}>
+      <nav className={`container-padding-x ${pathname === "/xnd-app" ? "bg-black" : "bg-p-50"}`}>
         <div className="flex flex-row items-center justify-between">
           <LandingLogo />
 

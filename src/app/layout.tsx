@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import "./globals.css";
 import StyledComponentsRegistry from "@/lib/registry";
 import { MerchantFormProvider } from "@/lib/context/MerchantFormContext";
+import HeaderNav from "@/components/header-nav/header-nav";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -59,6 +60,7 @@ export default function RootLayout({
       <StyledComponentsRegistry>
         <body className={inter.className}>
           <MerchantFormProvider>
+            <HeaderNav />
             {children}
           </MerchantFormProvider>
         </body>

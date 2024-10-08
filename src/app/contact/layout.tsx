@@ -13,7 +13,6 @@ export default function ContactLayout({
 }) {
   return (
     <>
-      <HeaderNav />
       {children}
     </>
   )
