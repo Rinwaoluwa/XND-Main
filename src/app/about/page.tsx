@@ -1,14 +1,18 @@
+"use client"
+
 import Button from "@/components/button";
 import Footer from "@/components/footer";
 import { AboutUsContent } from "@/fixtures/apart";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function AboutUs() {
+  const router =  useRouter();
   return (
     <div aria-describedby="about us page">
       <section
         aria-describedby="about exchange next door"
-        className="container-padding-y bg-[#FBFBFB]"
+        className="container-padding-y bg-[#FBFBFB] mt-8"
       >
         <div className="container-padding-x  text-center mb-2">
           <h1 className="section-header">About Us</h1>
@@ -76,6 +80,7 @@ export default function AboutUs() {
           <Button
             aria-describedby="get started button"
             text="Get Started today"
+            onClick={() => router.push("/xnd-app")}
           />
         </div>
       </section>
