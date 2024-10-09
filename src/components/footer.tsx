@@ -13,7 +13,7 @@ export default function Footer() {
   const SVGS = [<Facebok />, <Twitter />, <Linkedin />, <Instagram />]
 
   return (
-    <footer className={`${["/terms", "/privacy", "/about"].includes(pathname) ? "bg-[#FBFBFB]" : "bg-black text-white "} container-padding-x container-padding-y text-center`}>
+    <footer className={`${["/terms", "/privacy", "/about", "/faq"].includes(pathname) ? "bg-[#FBFBFB]" : "bg-black text-white "} container-padding-x container-padding-y text-center`}>
       <div
         className="container-padding-y grid grid-cols-12 gap-x-3 gap-y-6 text-left"
         aria-describedby="Footer"
@@ -36,7 +36,7 @@ export default function Footer() {
           <div className="flex flex-row gap-3" aria-describedby="social links">
 
             {socials.map((social, id) => {
-              if(["/terms", "/privacy", "/about"].includes(pathname)) {
+              if(["/terms", "/privacy", "/about", "/faq"].includes(pathname)) {
                 return (
                   <a href={social.url} className="hover:scale-[1.2] cusor-pointer" key={id}>
                     {SVGS[id]}
