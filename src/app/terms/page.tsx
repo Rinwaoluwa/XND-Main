@@ -1,30 +1,35 @@
 import React from 'react';
 import { Poppins } from 'next/font/google';
-
-const poppins = Poppins({
-  subsets: ['latin'], // Specify the subsets you need
-  weight: ['400', '600', '700'], // Specify the font weights you intend to use
-  display: 'swap', // Optional: Controls the font display strategy
-});
-
 import JoinCommunity from "@/components/JoinCommunity";
 import { terms, termsOfUse } from "@/fixtures/terms";
+import SubscribeToNewsletter from '@/components/SubscirbeToNewletter';
+import Footer from '@/components/footer';
 
 
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['400', '600', '700'],
+  display: 'swap',
+});
+
+// Define the Terms Component
 export default function Terms() {
   return (
     <>
       <section className={`${poppins.className} max-w-4xl mx-auto p-6 bg-white`}>
         <h1 className="text-xl lg:text-2xl font-bold my-8">Terms of Use & Privacy Policy</h1>
         <p className="text-sm font-medium mb-4">Last updated: March 7, 2022</p>
-        {terms.map((section, index: number) => (
+        
+        {terms.map((section, index) => (
           <div key={index} className="mb-8">
             <h2 className="text-lg font-bold mb-4">{section.title}</h2>
-            {Array.isArray(section.info) ?
-              section.info.map((item, index) => <p key={index} className="mb-4">{item}</p>) :
+            {Array.isArray(section.info) ? (
+              section.info.map((item, itemIndex) => (
+                <p key={itemIndex} className="mb-4">{item}</p>
+              ))
+            ) : (
               <p>{section.info}</p>
-            }
-
+            )}
           </div>
         ))}
 
@@ -42,15 +47,15 @@ export default function Terms() {
             <h2 className="text-lg font-bold mb-4">{section.title}</h2>
             <ul className="list-disc pl-6 space-y-2">
               {section.items.map((item, itemIndex) => (
-                <li key={itemIndex} className="">
+                <li key={itemIndex}>
                   {item}
                 </li>
               ))}
             </ul>
           </div>
         ))}
-        {/* Additional sections can be added here as needed */}
 
+        {/* Subscriptions Section */}
         <div>
           <h3 className="text-lg font-bold mb-4">Subscriptions</h3>
           <p>
@@ -79,6 +84,8 @@ export default function Terms() {
       </section>
 
       <JoinCommunity />
+      <SubscribeToNewsletter />
+      <Footer />
     </>
   );
-};
+}
