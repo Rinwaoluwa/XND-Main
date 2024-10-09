@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Faqs from "@/components/faqs";
 import { contacts } from "@/fixtures/contact";
+import Footer from "@/components/footer";
 
 export default function Contact() {
   return (
@@ -54,6 +55,7 @@ export default function Contact() {
       </section>
 
       <Faqs />
+      <Footer />
     </div>
   );
 }

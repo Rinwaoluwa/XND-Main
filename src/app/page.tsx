@@ -11,14 +11,17 @@ import HeaderNav from "@/components/header-nav/header-nav";
 import Footer from '@/components/footer';
 import CTA from '@/components/CTA';
 import AnimatedLinkButton from '@/components/animatedButton';
+import Currencies from '@/components/Currencies';
+import GiftCards from '@/components/GiftCards';
+import { useMerchantForm } from '@/lib/context/MerchantFormContext';
 
 
 export default function Home() {
   const isMobile = useMediaQuery(992);
+  const {handleShowMerchantForm} = useMerchantForm();
 
   return (
     <>
-      <HeaderNav />
       <main aria-describedby='home page' className='bg-p-50'>
         <section
           className='container-padding-x pt-12 landing-page-hero-image'
@@ -60,7 +63,7 @@ export default function Home() {
           </div>
           <div className={`flex gap-4 mb-8  items-center ${isMobile ? "flex-col" : "justify-center"}`}>
             <Link
-              href="/get-started"
+              href="/xnd-app"
               className="text-white bg-main-primary px-2 py-6 w-32 h-10 text-center flex items-center justify-center gap-1 hover:bg-opacity-90 rounded-3xl"
             >
               Get started
@@ -69,9 +72,9 @@ export default function Home() {
                 <path d="M9 4L13.5 8.5L9 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </Link>
-            <Link href="/merchant-program" className="bg-white border border-g-400 text-p-400 px-6 py-3 rounded-3xl hover:bg-g-200 transition duration-300">
+            <button onClick={() => handleShowMerchantForm(true)} className="bg-white border border-g-400 text-p-400 px-6 py-3 rounded-3xl hover:bg-g-200 transition duration-300">
               Sign up for XND Merchant program
-            </Link>
+            </button>
           </div>
           <div className="relative w-full overflow-hidden">
             <div className={isMobile ? "" : 'ellipse-container-image flex justify-center pt-12'}>
@@ -82,8 +85,10 @@ export default function Home() {
           </div>
           <h2 className="text-3xl font-bold text-center mt-12 mb-2">Discover how XND works</h2>
           <p className="text-center text-gray-600">Users on the platform adhere to certain preferences - let&apos;s show you.</p>
-          {/* <GiftCards /> */}
-          {/* <Currencies /> */}
+          <div className="flex flex-col lg:flex-row justify-between w-full">
+            <GiftCards />
+            <Currencies />
+          </div>
         </section>
 
         <section className="bg-main-primary text-white py-20">

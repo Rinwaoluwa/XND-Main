@@ -37,12 +37,6 @@ export const features: Feature[] = [
   },
 ];
 
-// <span className="text-[#D4A100]" ></span>
-//                 <span className="text-[#D4A100]" ></span>
-//                 <span className="text-[#D4A100]" ></span>
-//                 <span className="text-[#D4A100]" ></span>
-//                 <span className="text-[#D4A100]" ></span>
-
 export const TITLE = [
   "don't compromise your assets.",
   "don't fall prey to vulnerabilities.",

@@ -49,7 +49,7 @@ const Hamburger: React.FC<HamburgerProps> = (props) => {
 
 interface IProps {
   showMerchantForm: boolean;
-  setShowMerchantForm: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowMerchantForm: (show: boolean) => void;
   bgColor?: string;
 }
 

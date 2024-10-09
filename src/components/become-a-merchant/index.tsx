@@ -7,7 +7,7 @@ import Form from "./components/form";
 
 interface BMerchantProps {
   showMerchantForm: boolean;
-  setShowMerchantForm: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowMerchantForm: (show: boolean) => void;
 }
 
 interface IFormValues {
@@ -200,77 +200,15 @@ const BMerchant: React.FC<BMerchantProps> = ({
               </Form.Group>
 
               <div className="flex gap-3 w-full justify-end">
-                <button className="text-main-primary px-4 py-2 #FCFCFC border h-10 text-center flex items-center justify-center hover:bg-opacity-90 rounded-3xl">
+                <a href="https://xnd-frontend.vercel.app/auth/register" className="text-main-primary px-4 py-2 #FCFCFC border h-10 text-center flex items-center justify-center hover:bg-opacity-90 rounded-3xl">
                   Sign up as a seller
-                </button>
+                </a>
                 <button className="text-white px-4 py-2 bg-main-primary h-10 text-center flex items-center justify-center hover:bg-opacity-90 rounded-3xl">
                   Send application
                 </button>
               </div>
             </div>
           </Form>
-
-          {/* <form
-            className="w-full flex flex-col gap-4 mt-8 pb-6"
-            onSubmit={handleSubmit}
-          >
-            <MerchantInput
-              placeholder="First name"
-              value={formValues.firstName}
-              onChange={(e) =>
-                setFormValues({ ...formValues, firstName: e.target.value })
-              }
-            />
-            <MerchantInput
-              placeholder="Last name"
-              value={formValues.lastName}
-              onChange={(e) =>
-                setFormValues({ ...formValues, lastName: e.target.value })
-              }
-            />
-            <MerchantInput
-              placeholder="Email address"
-              value={formValues.email}
-              onChange={(e) =>
-                setFormValues({ ...formValues, email: e.target.value })
-              }
-            />
-            <MerchantInput
-              placeholder="Mobile Number"
-              value={formValues.mobileNumber}
-              onChange={(e) =>
-                setFormValues({ ...formValues, mobileNumber: e.target.value })
-              }
-            />
-            <MerchantInput
-              placeholder="Date of Birth"
-              value={formValues.dob}
-              onChange={(e) =>
-                setFormValues({ ...formValues, dob: e.target.value })
-              }
-            />
-            <MerchantInput
-              placeholder="Job title"
-              value={formValues.jobTitle}
-              onChange={(e) =>
-                setFormValues({ ...formValues, jobTitle: e.target.value })
-              }
-            />
-            <MerchantInput
-              placeholder="Company"
-              value={formValues.comapny}
-              onChange={(e) =>
-                setFormValues({ ...formValues, comapny: e.target.value })
-              }
-            />
-            <MerchantInput
-              placeholder="Merchant Type"
-              value={formValues.merchantType}
-              onChange={(e) =>
-                setFormValues({ ...formValues, merchantType: e.target.value })
-              }
-            />
-          </form> */}
 
         </div>
       </div>

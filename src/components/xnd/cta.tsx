@@ -10,7 +10,7 @@ export default function Cta(
             <div className={`self-center flex flex-col gap-4 lg:w-[419px]`}>
                 <h2 className="text-2xl md:text-4xl font-[600]">{title}</h2>
                 <p>{caption}</p>
-                <AnimatedLinkButton href="/login">Start here</AnimatedLinkButton>
+                <AnimatedLinkButton href="https://xnd-frontend.vercel.app/auth/register">Start here</AnimatedLinkButton>
             </div>
             <div className={`relative bg-[#F0F5FA] px-12 pt-12 w-full lg:w-[557px] rounded-2xl flex justify-center ${order}`}>
                 <div className="absolute group-lines-up -top-0 rotate-[0]"></div>

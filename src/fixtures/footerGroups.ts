@@ -26,9 +26,9 @@ export const footerGroups: footerGroup[] = [
   {
     header: "Legal",
     links: [
-      { title: "FAQ", href: "/faq" },
-      { title: "Privacy", href: "" },
-      { title: "Terms", href: "" },
+      // { title: "FAQ", href: "/faq" },
+      { title: "Privacy", href: "/privacy" },
+      { title: "Terms", href: "/terms" },
     ],
   },
 ];
