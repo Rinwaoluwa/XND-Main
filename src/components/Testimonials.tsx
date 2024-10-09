@@ -42,7 +42,7 @@ export default function Testimonials() {
             await controls.start({
                 x: -width,
                 transition: {
-                    duration: 10,
+                    duration: 5,
                     ease: "linear",
                     repeat: Infinity,
                 },
@@ -55,7 +55,7 @@ export default function Testimonials() {
     }, [controls, width, isMobile])
 
     const handleMouseEnter = () => controls.stop()
-    const handleMouseLeave = () => controls.start({ x: -width, transition: { duration: 10, ease: "linear", repeat: Infinity } })
+    const handleMouseLeave = () => controls.start({ x: -width, transition: { duration: 5, ease: "linear", repeat: Infinity } })
 
     return (
         <section className="py-8 overflow-hidden">
