@@ -30,7 +30,7 @@ export default function HeaderNav() {
       <nav
         className={`container-padding-x ${
         pathname === "/xnd-app" ? "bg-black" :
-        ["/terms", "/privacy"].map((route: string) => route === pathname ? "bg-white":"bg-p-50") }`
+        ["/terms", "/privacy", "/about"].includes(pathname) ? "bg-white" : "bg-p-50"}`
         }
       >
         <div className="flex flex-row items-center justify-between">
