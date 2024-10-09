@@ -10,7 +10,12 @@ import { useMerchantForm } from "@/lib/context/MerchantFormContext";
 export default function Footer() {
   const pathname = usePathname();
   const { handleShowMerchantForm } = useMerchantForm();
-  const SVGS = [<Facebok />, <Twitter />, <Linkedin />, <Instagram />]
+  const SVGS = [
+    <Facebok key={0} />,
+    <Twitter key={1} />,
+    <Linkedin key={2} />,
+    <Instagram key={3} />
+  ]
 
   return (
     <footer className={`${["/terms", "/privacy", "/about", "/faq"].includes(pathname) ? "bg-[#FBFBFB]" : "bg-black text-white "} container-padding-x container-padding-y text-center`}>
@@ -36,7 +41,7 @@ export default function Footer() {
           <div className="flex flex-row gap-3" aria-describedby="social links">
 
             {socials.map((social, id) => {
-              if(["/terms", "/privacy", "/about", "/faq"].includes(pathname)) {
+              if (["/terms", "/privacy", "/about", "/faq"].includes(pathname)) {
                 return (
                   <a href={social.url} className="hover:scale-[1.2] cusor-pointer" key={id}>
                     {SVGS[id]}
