@@ -7,7 +7,6 @@ import Image from "next/image";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import Testimonials from "@/components/Testimonials";
 import Faqs from "@/components/faqs";
-import HeaderNav from "@/components/header-nav/header-nav";
 import Footer from '@/components/footer';
 import CTA from '@/components/CTA';
 import AnimatedLinkButton from '@/components/animatedButton';
@@ -18,7 +17,7 @@ import { useMerchantForm } from '@/lib/context/MerchantFormContext';
 
 export default function Home() {
   const isMobile = useMediaQuery(992);
-  const {handleShowMerchantForm} = useMerchantForm();
+  const { handleShowMerchantForm } = useMerchantForm();
 
   return (
     <>
@@ -64,7 +63,7 @@ export default function Home() {
           <div className={`flex gap-4 mb-8  items-center ${isMobile ? "flex-col" : "justify-center"}`}>
             <Link
               href="/xnd-app"
-              className="text-white bg-main-primary px-2 py-6 w-32 h-10 text-center flex items-center justify-center gap-1 hover:bg-opacity-90 rounded-3xl"
+              className="text-white bg-main-primary px-2 py-6 w-44 h-10 text-center flex items-center justify-center gap-1 hover:bg-opacity-90 rounded-3xl"
             >
               Get started
               <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -85,9 +84,21 @@ export default function Home() {
           </div>
           <h2 className="text-3xl font-bold text-center mt-12 mb-2">Discover how XND works</h2>
           <p className="text-center text-gray-600">Users on the platform adhere to certain preferences - let&apos;s show you.</p>
-          <div className="flex flex-col lg:flex-row justify-between w-full">
+          <div className="flex flex-col lg:flex-row justify-between py-12 w-full">
             <GiftCards />
             <Currencies />
+          </div>
+          <div className='flex justify-center items-center mb-8'>
+            <Link
+              href="/xnd-app"
+              className="text-white bg-main-primary px-4 lg:px-2 py-6 h-10 w-[251px] text-center flex items-center justify-center gap-1 hover:bg-opacity-90 rounded-3xl"
+            >
+              Explore how XND works
+              <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.5 8.5H13.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M9 4L13.5 8.5L9 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </Link>
           </div>
         </section>
 
