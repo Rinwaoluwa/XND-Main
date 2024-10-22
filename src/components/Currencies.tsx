@@ -13,6 +13,11 @@ const currencies = [
 export default function Currencies() {
     // `isMobile` checks if the screen width is below 992px using a custom hook
     const isMobile = useMediaQuery(992);
+    // Distance from the center of the container used to detect the centered element.
+    const centerThreshold = isMobile ? 50 : 500;
+    const opacityDelay = .8;
+    const translateYThreshold = 250;
+
 
     // States to manage carousel width, center detection, and current centered element
     const [width, setWidth] = useState(0);
@@ -36,7 +41,7 @@ export default function Currencies() {
             await controls.start({
                 x: -width, // Scroll from left to right
                 transition: {
-                    duration: 80, // Total duration of the scrolling animation
+                    duration: 30, // Total duration of the scrolling animation
                     ease: "linear", // Smooth linear scrolling
                     repeat: Infinity, // Infinite scrolling
                 },
@@ -59,8 +64,8 @@ export default function Currencies() {
                     const rect = currencyDiv.getBoundingClientRect();
                     const symbolCenter = rect.left + rect.width / 2; // Calculate the center of the current symbol
 
-                    // Check if the symbol's center is near the container's center (within 370px)
-                    if (Math.abs(symbolCenter - containerCenter) < 370) {
+                    // Check if the symbol's center is near the container's center
+                    if (Math.abs(symbolCenter - containerCenter) < centerThreshold) {
                         setCurrentCenteredElementIndex(i); // Mark the element as centered
                     }
                 }
@@ -71,43 +76,51 @@ export default function Currencies() {
     }, [containerCenter, x]);
 
     return (
-        <div className="w-1/2 rounded-2xl overflow-hidden">
-            <div className="relative rounded-2xl">
-                {/* Motion div representing the carousel with horizontal scrolling */}
-                <motion.div
-                    ref={carouselRef} // Reference to the div
-                    className="flex" // Flexbox layout for horizontal arrangement of symbols
-                    style={{ x }} // Horizontal scroll position
-                    animate={controls}
-                >
-                    {/* Display each currency symbol twice to create the infinite scroll illusion */}
-                    {[...currencies, ...currencies].map((currency, index) => (
-                        <motion.div
-                            key={`${index}`}
-                            className="h-[300px] w-[200px] ml-2 flex-shrink-0" // Styling for each currency item
-                            style={{
-                                left: index * 50, // Offset each element to the right
-                                zIndex: currencies.length - index, // Z-index for layering effects
-                            }}
-                            animate={{
-                                y: currentCenteredElementIndex === index ? 250 : 0, // Drop down the centered element
-                                opacity: currentCenteredElementIndex === index ? [1, 0.6, 0.2, 0] : 1, // Fade out the centered element
-                            }}
-                            transition={{
-                                duration: 5, // Total duration for translate y animation
-                                ease: "linear", // Linear easing for smoothness
-                                opacity: {
-                                    delay: 0.8 * (index + 1), // Stagger the fade animation
-                                    duration: 3,
-                                    ease: "linear",
-                                },
-                            }}
-                        >
-                            {currency.symbol} {/* Render the currency symbol */}
-                        </motion.div>
-                    ))}
-                </motion.div>
+        <div className="w-full lg:w-1/2">
+            <div className='self-center rounded-2xl overflow-hidden'>
+
+                <div className="relative rounded-2xl">
+                    {/* Motion div representing the carousel with horizontal scrolling */}
+                    <motion.div
+                        ref={carouselRef} // Reference to the div
+                        className="flex" // Flexbox layout for horizontal arrangement of symbols
+                        style={{ x }} // Horizontal scroll position
+                        animate={controls}
+                    >
+                        {/* Display each currency symbol twice to create the infinite scroll illusion */}
+                        {[...currencies, ...currencies].map((currency, index) => (
+                            <motion.div
+                                key={`${index}`}
+                                className="h-[300px] w-[200px] ml-2 flex-shrink-0" // Styling for each currency item
+                                style={{
+                                    left: index * 50, // Offset each element to the right
+                                    zIndex: currencies.length - index, // Z-index for layering effects
+                                }}
+                                animate={{
+                                    y: currentCenteredElementIndex === index ? translateYThreshold : 0, // Drop down the centered element
+                                    opacity: currentCenteredElementIndex === index ? [1, 0.6, 0.2, 0] : 1, // Fade out the centered element
+                                }}
+                                transition={{
+                                    duration: 5, // Total duration for translate y animation
+                                    ease: "linear", // Linear easing for smoothness
+                                    opacity: {
+                                        delay: opacityDelay * (index + 1), // Stagger the fade animation
+                                        duration: 3,
+                                        ease: "linear",
+                                    },
+                                }}
+                            >
+                                {currency.symbol} {/* Render the currency symbol */}
+                            </motion.div>
+                        ))}
+                    </motion.div>
+                </div>
             </div>
+            <h2 className="text-3xl font-bold text-center lg:text-left mt-12 mb-2">Trade Cryptocurrency</h2>
+            <p className="text-center lg:text-left text-gray-600">Exchange your cryptocurrency for fiat as a seller and merchant in <br />
+                XND within minutes. Our P2P infrastructure guarantees safe trades.
+            </p>
+
         </div>
     );
 }
