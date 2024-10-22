@@ -13,7 +13,7 @@ export const faqs: Faq[] = [
     body: 'To register on ExchangeNextDoor, visit our website, click on the "Sign Up" button, and follow the registration process by providing the required information.',
   },
   {
-    title: "What types of gift cards can I sell on ExchangeNextDoor?",
+    title: "What typ  es of gift cards can I sell on ExchangeNextDoor?",
     body: "You can sell a variety of gift cards on ExchangeNextDoor, including those from popular retailers, restaurants, and online services.",
   },
   {

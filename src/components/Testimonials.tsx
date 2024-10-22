@@ -42,7 +42,7 @@ export default function Testimonials() {
             await controls.start({
                 x: -width,
                 transition: {
-                    duration: 10,
+                    duration: 5,
                     ease: "linear",
                     repeat: Infinity,
                 },
@@ -55,11 +55,11 @@ export default function Testimonials() {
     }, [controls, width, isMobile])
 
     const handleMouseEnter = () => controls.stop()
-    const handleMouseLeave = () => controls.start({ x: -width, transition: { duration: 10, ease: "linear", repeat: Infinity } })
+    const handleMouseLeave = () => controls.start({ x: -width, transition: { duration: 5, ease: "linear", repeat: Infinity } })
 
     return (
         <section className="py-8 overflow-hidden">
-            <div className="container">
+            <div className="flex flex-col items-center">
                 <h2 className="text-3xl font-bold text-center mb-2">What are people saying about us</h2>
                 <p className="text-center text-sm text-gray-600 mb-12">Our customers love the simplicity and security of trading with us.</p>
                 <div className="relative w-screen">

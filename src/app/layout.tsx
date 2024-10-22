@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from 'next/font/google'
 import "./globals.css";
 import StyledComponentsRegistry from "@/lib/registry";
+import { MerchantFormProvider } from "@/lib/context/MerchantFormContext";
+import HeaderNav from "@/components/header-nav/header-nav";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -57,7 +59,10 @@ export default function RootLayout({
     <html lang="en">
       <StyledComponentsRegistry>
         <body className={inter.className}>
-          {children}
+          <MerchantFormProvider>
+            <HeaderNav />
+            {children}
+          </MerchantFormProvider>
         </body>
       </StyledComponentsRegistry>
     </html>

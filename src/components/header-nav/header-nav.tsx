@@ -11,10 +11,11 @@ import ServicesDropdown from "../service-dropdown";
 import { AnimatePresence } from "framer-motion";
 import BMerchant from "../become-a-merchant";
 import Image from "next/image";
+import { useMerchantForm } from "@/lib/context/MerchantFormContext";
 
-export default function HeaderNav({ bgColor = "bg-p-50" }: { bgColor?: string; }) {
+export default function HeaderNav() {
   const pathname = usePathname();
-  const [showMerchantForm, setShowMerchantForm] = useState(false);
+  const {showMerchantForm, handleShowMerchantForm} = useMerchantForm();
   const [dropdown, setDropdown] = useState<DropdownState>({
     state: false,
     id: 0,
@@ -26,18 +27,23 @@ export default function HeaderNav({ bgColor = "bg-p-50" }: { bgColor?: string; }
 
   return (
     <header>
-      <nav className={`container-padding-x ${bgColor}`}>
+      <nav
+        className={`container-padding-x ${
+        pathname === "/xnd-app" ? "bg-black" :
+        ["/terms", "/privacy", "/about", "/faq"].includes(pathname) ? "bg-white" : "bg-p-50"}`
+        }
+      >
         <div className="flex flex-row items-center justify-between">
           <LandingLogo />
 
           <MobileSideBar
-            setShowMerchantForm={setShowMerchantForm}
+            setShowMerchantForm={handleShowMerchantForm}
             showMerchantForm={showMerchantForm}
             bgColor={pathname === "/xnd-app" ? "bg-black" : "bg-white"}
           />
           {showMerchantForm && (
             <BMerchant
-              setShowMerchantForm={setShowMerchantForm}
+              setShowMerchantForm={handleShowMerchantForm}
               showMerchantForm={showMerchantForm}
             />
           )}
@@ -50,7 +56,7 @@ export default function HeaderNav({ bgColor = "bg-p-50" }: { bgColor?: string; }
               >
                 {navlink.name === "Apply as merchant" ? (
                   <button
-                    onClick={() => setShowMerchantForm(!showMerchantForm)}
+                    onClick={() => handleShowMerchantForm(!showMerchantForm)}
                   >
                     {navlink.name}
                   </button>
@@ -82,23 +88,19 @@ export default function HeaderNav({ bgColor = "bg-p-50" }: { bgColor?: string; }
                     <Link href={navlink.route}>{navlink.name}</Link>
                   </div>
                 )}
-                <div
-                  className={`${pathname === navlink.route ? "w-full" : "w-0"
-                    } border-t border-p-400 transition-all absolute -bottom-[2px] left-1/2 -translate-x-1/2`}
-                ></div>
               </li>
             ))}
           </ul>
           <div className="lg:flex flex-row gap-2 lg:gap-3 xl:gap-5 items-center hidden">
             {pathname === "/xnd-app" ?
               (<Link
-                href="/login"
+                href="https://xnd-frontend.vercel.app/auth/login"
                 className="text-black bg-white w-28 lg:w-32 h-10 text-center flex items-center justify-center hover:bg-opacity-90 rounded-3xl"
               >
                 Login
               </Link>) :
               (<Link
-                href="/register"
+                href="/xnd-app"
                 className="text-white bg-main-primary w-28 lg:w-32 h-10 text-center flex items-center justify-center hover:bg-opacity-90 rounded-3xl"
               >
                 Go to app

@@ -2,20 +2,25 @@
 "use client"
 
 import React from 'react';
-import Image from "next/image";
 import Link from 'next/link'
+import Image from "next/image";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import Testimonials from "@/components/Testimonials";
 import Faqs from "@/components/faqs";
-import HeaderNav from "@/components/header-nav/header-nav";
 import Footer from '@/components/footer';
+import CTA from '@/components/CTA';
+import AnimatedLinkButton from '@/components/animatedButton';
+import Currencies from '@/components/Currencies';
+import GiftCards from '@/components/GiftCards';
+import { useMerchantForm } from '@/lib/context/MerchantFormContext';
+
 
 export default function Home() {
   const isMobile = useMediaQuery(992);
+  const { handleShowMerchantForm } = useMerchantForm();
 
   return (
     <>
-      <HeaderNav />
       <main aria-describedby='home page' className='bg-p-50'>
         <section
           className='container-padding-x pt-12 landing-page-hero-image'
@@ -49,22 +54,26 @@ export default function Home() {
               Trade gift cards securely,
             </h1>
             {/* TEXT ANIMATION */}
+            <CTA />
             <p className="text-xl text-gray-600 max-w-2xl">
               Got unused gift cards? Don&apos;t let them gather dust — trade them for cryptocurrency
               today. Secure, simple, and profitable!
             </p>
           </div>
-          <div className={`flex gap-4 mb-8 ${isMobile ? "flex-col items-center" : "justify-center"}`}>
-            <Link href="/get-started" className="bg-main-primary text-white px-6 py-3 rounded-3xl hover:bg-blue-700 transition duration-300 flex items-center gap-1">
+          <div className={`flex gap-4 mb-8  items-center ${isMobile ? "flex-col" : "justify-center"}`}>
+            <Link
+              href="/xnd-app"
+              className="text-white bg-main-primary px-2 py-6 w-44 h-10 text-center flex items-center justify-center gap-1 hover:bg-opacity-90 rounded-3xl"
+            >
               Get started
               <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M2.5 8.5H13.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 <path d="M9 4L13.5 8.5L9 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </Link>
-            <Link href="/merchant-program" className="bg-white border border-g-400 text-p-400 px-6 py-3 rounded-3xl hover:bg-g-200 transition duration-300">
+            <button onClick={() => handleShowMerchantForm(true)} className="bg-white border border-g-400 text-p-400 px-6 py-3 rounded-3xl hover:bg-g-200 transition duration-300">
               Sign up for XND Merchant program
-            </Link>
+            </button>
           </div>
           <div className="relative w-full overflow-hidden">
             <div className={isMobile ? "" : 'ellipse-container-image flex justify-center pt-12'}>
@@ -75,8 +84,22 @@ export default function Home() {
           </div>
           <h2 className="text-3xl font-bold text-center mt-12 mb-2">Discover how XND works</h2>
           <p className="text-center text-gray-600">Users on the platform adhere to certain preferences - let&apos;s show you.</p>
-          {/* <GiftCards /> */}
-          {/* <Currencies /> */}
+          <div className="flex flex-col lg:flex-row justify-between py-12 w-full">
+            <GiftCards />
+            <Currencies />
+          </div>
+          <div className='flex justify-center items-center mb-8'>
+            <Link
+              href="/xnd-app"
+              className="text-white bg-main-primary px-4 lg:px-2 py-6 h-10 w-[251px] text-center flex items-center justify-center gap-1 hover:bg-opacity-90 rounded-3xl"
+            >
+              Explore how XND works
+              <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.5 8.5H13.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M9 4L13.5 8.5L9 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </Link>
+          </div>
         </section>
 
         <section className="bg-main-primary text-white py-20">
@@ -92,16 +115,9 @@ export default function Home() {
                 <div>
                   <h2 className="text-2xl md:text-3xl font-[600] text-main-primary mb-4">Let&apos;s get you started</h2>
                   <p className="text-[#414141] text-sm md:text-lg mb-6">Our customers love the simplicity and security of trading with us.</p>
-                  <Link
-                    href="/register"
-                    className="text-white bg-main-primary w-32 h-10 text-center flex items-center justify-center gap-1 hover:bg-opacity-90 rounded-3xl"
-                  >
+                  <AnimatedLinkButton href="/register">
                     Go to app
-                    <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M2.5 8.5H13.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                      <path d="M9 4L13.5 8.5L9 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </Link>
+                  </AnimatedLinkButton>
                 </div>
               </div>
               <Image src="/assets/images/xnd-preview.png" className='self-end' alt="XND App" width={450} height={900} />

@@ -1,12 +1,10 @@
-import HeaderNav from '@/components/header-nav/header-nav';
 import { Metadata } from 'next'
-import React from 'react';
 
 export const metadata: Metadata = {
-  title: 'Contact'
+  title: 'Terms'
 }
 
-export default function ContactLayout({
+export default function TermsLayout({
   children
 }: {
   children: React.ReactNode
