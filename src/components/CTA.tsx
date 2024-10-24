@@ -3,11 +3,14 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion, useCycle } from "framer-motion";
 import { TITLE } from '@/fixtures/features';
+import useMediaQuery from '@/hooks/useMediaQuery';
 
 
 export default function CTA() {
   const [currentIndex, setCurrentIndex] = useState(0)
-  const [direction, setDirection] = useState(1)
+  const [direction, setDirection] = useState(1);
+  const isSmallMobile = useMediaQuery(360);
+
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -42,7 +45,7 @@ export default function CTA() {
               display: 'none'
             }}
             transition={{ duration: .5 }}
-            className="absolute left-0 inset-0 flex items-center justify-center text-4xl md:text-5xl lg:text-6xl text-[#D4A100] text-center font-bold w-full"
+            className={`absolute left-0 inset-0 flex items-center justify-center ${isSmallMobile ? "text-base" : ""} text-4xl md:text-5xl lg:text-6xl text-[#D4A100] text-center font-bold w-full`}
           >
             {TITLE[currentIndex]}
           </motion.h1>
