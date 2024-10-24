@@ -17,6 +17,8 @@ import { useMerchantForm } from '@/lib/context/MerchantFormContext';
 
 export default function Home() {
   const isMobile = useMediaQuery(992);
+  const isSmallMobile = useMediaQuery(360);
+
   const { handleShowMerchantForm } = useMerchantForm();
 
   return (
@@ -50,7 +52,7 @@ export default function Home() {
                 <p className="text-sm text-gray-600">Rated 4.9/5 by 5000+ users</p>
               </div>
             </div>
-            <h1 className="text-blue text-4xl md:text-6xl font-bold">
+            <h1 className={`text-blue ${isSmallMobile ? "text-xl" : ""} text-4xl md:text-6xl font-bold`}>
               Trade gift cards securely,
             </h1>
             {/* TEXT ANIMATION */}

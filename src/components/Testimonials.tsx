@@ -49,7 +49,7 @@ export default function Testimonials() {
             })
         }
 
-        if (width > 0 && !isMobile) {
+        if (width > 0) {
             animateCarousel()
         }
     }, [controls, width, isMobile])
