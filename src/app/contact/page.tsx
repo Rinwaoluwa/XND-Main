@@ -5,44 +5,39 @@ import Footer from "@/components/footer";
 
 export default function Contact() {
   return (
-    <div aria-describedby="contact page">
+    <div aria-describedby="contact page" className="bg-p-50">
       <section
         aria-describedby="contact exchange next door"
-        className="container-padding-y container-padding-x bg-p-50 flex flex-col items-center"
+        className="py-8 md:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 flex flex-col items-center max-w-6xl mx-auto"
       >
-        <h1 className="section-header text-center">
-          Contact Exchange Next Door
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-2">
+          Contact us
         </h1>
-        <p className="section-description text-center">
+        <p className="text-base sm:text-lg text-center text-gray-600 mb-8">
           We value your feedback, questions, and inquiries
         </p>
-        <div className="mt-5 grid gap-4 grid-cols-1 md:grid-cols-2">
+        <div className="w-full grid gap-2 grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 max-w-4xl">
           {contacts.map((contact, id) => (
-            <div key={id} className="p-7 border bg-[#FFFFFF] w-[400px] rounded-2xl">
-              <div className="mb-7">
+            <div key={id} className="p-6 border border-gray-200 rounded-lg shadow-sm bg-white">
+              <div className="flex items-center mb-4">
                 <Image
                   src={contact.src}
                   width={40}
                   height={40}
                   alt={contact.title}
+                  className="mr-3"
                 />
+                <h2 className="text-lg font-semibold text-gray-900">{contact.title}</h2>
               </div>
-              <div className="mb-7">
-                <h6 className="text-xl text-p-600 font-[600] mb-2">
-                  {contact.title}
-                </h6>
-                <p className="text-base text-g-700">{contact.info}</p>
-              </div>
+              <p className="text-sm text-gray-600 mb-3">{contact.info}</p>
               <ul>
-                {contact.links.map((link, id) => (
-                  <li
-                    key={id}
-                    className="text-p-600 underline mb-1 break-words break-all"
-                  >
+                {contact.links.map((link, linkId) => (
+                  <li key={linkId} className="text-sm mb-1">
                     <a
                       href={link.url}
                       target="_blank"
                       rel="noreferrer noopener"
+                      className="text-blue-600 hover:text-blue-800 transition-colors duration-200"
                     >
                       {link.text}
                     </a>

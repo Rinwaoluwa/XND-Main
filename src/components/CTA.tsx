@@ -45,7 +45,7 @@ export default function CTA() {
               display: 'none'
             }}
             transition={{ duration: .5 }}
-            className={`absolute left-0 inset-0 flex items-center justify-center ${isSmallMobile ? "text-base" : ""} text-4xl md:text-5xl lg:text-6xl text-[#D4A100] text-center font-bold w-full`}
+            className={`absolute left-0 inset-0 flex items-center justify-center ${isSmallMobile ? "text-[15px]" : ""} text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-[#D4A100] text-center font-bold w-full`}
           >
             {TITLE[currentIndex]}
           </motion.h1>

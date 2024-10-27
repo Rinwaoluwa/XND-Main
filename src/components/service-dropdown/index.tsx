@@ -3,6 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import Link from "next/link";
+import { useMerchantForm } from "@/lib/context/MerchantFormContext";
 
 const variants = {
   initial: {
@@ -35,6 +36,7 @@ const mobileVariants = {
 
 const ServicesDropdown = () => {
   const isMobile = useMediaQuery(992);
+  const { handleShowMerchantForm } = useMerchantForm();
   return (
     <motion.div
       variants={isMobile ? mobileVariants : variants}
@@ -53,10 +55,10 @@ const ServicesDropdown = () => {
             <div className="bg-black h[2px]"></div>
           </div>
         </div>
-        <a href="#" className="flex text-[#031425] font-[600] text-lg px-4 lg:px-8 pt-6">
+        <div className="flex text-[#031425] font-[600] text-lg px-4 lg:px-8 pt-6" onClick={() => handleShowMerchantForm(true)}>
           <h3>Apply as a merchant</h3>
           <ArrowSquareOut />
-        </a>
+        </div>
       </div>
       {/* Line */}
 
