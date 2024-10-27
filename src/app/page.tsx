@@ -52,12 +52,12 @@ export default function Home() {
                 <p className="text-sm text-gray-600">Rated 4.9/5 by 5000+ users</p>
               </div>
             </div>
-            <h1 className={`text-blue ${isSmallMobile ? "text-xl" : ""} text-4xl md:text-6xl font-bold`}>
+            <h1 className={`text-blue font-bold ${isSmallMobile ? "text-[18px]" : "text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl"}`}>
               Trade gift cards securely,
             </h1>
             {/* TEXT ANIMATION */}
             <CTA />
-            <p className="text-xl text-gray-600 max-w-2xl">
+            <p className={`${isSmallMobile ? "text-[15px]": "text-xl"} text-gray-600 max-w-2xl`}>
               Got unused gift cards? Don&apos;t let them gather dust — trade them for cryptocurrency
               today. Secure, simple, and profitable!
             </p>

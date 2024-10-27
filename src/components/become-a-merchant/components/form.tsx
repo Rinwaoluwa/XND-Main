@@ -3,7 +3,7 @@ import { Button } from '../../buttons'
 import Image from 'next/image'
 import Dropdown from './dropDown'
 
-export default function Form ({
+export default function Form({
   id,
   children,
   ...restProps
@@ -19,7 +19,7 @@ export default function Form ({
   )
 }
 
-Form.Group = function FormGroup ({
+Form.Group = function FormGroup({
   children,
   className,
   ...props
@@ -35,7 +35,7 @@ Form.Group = function FormGroup ({
   )
 }
 
-Form.Label = function FormLabel ({
+Form.Label = function FormLabel({
   srOnly = false,
   htmlFor,
   children,
@@ -50,9 +50,8 @@ Form.Label = function FormLabel ({
 }) {
   return (
     <label
-      className={`text-g-500 ${mb ? mb : 'mb-2'} text-left block ${
-        srOnly ? 'sr-only' : ''
-      }`}
+      className={`text-g-500 ${mb ? mb : 'mb-2'} text-left block ${srOnly ? 'sr-only' : ''
+        }`}
       htmlFor={htmlFor}
       {...props}
     >
@@ -61,7 +60,7 @@ Form.Label = function FormLabel ({
   )
 }
 
-Form.Input = function FormInput ({
+Form.Input = function FormInput({
   id,
   type,
   checked,
@@ -97,7 +96,7 @@ Form.Input = function FormInput ({
   )
 }
 
-Form.Phone = function FormPhone ({
+Form.Phone = function FormPhone({
   value,
   ...restProps
 }: {
@@ -106,18 +105,8 @@ Form.Phone = function FormPhone ({
 }) {
   return (
     <div className='border border-g-400 rounded-lg flex'>
-      {/* <div className='flex items-center justify-center gap-0.5 flex-nowrap min-w-[64px] rounded-l-lg bg-g-200 text-g-700 text-sm'>
-        NG
-        <Image
-          src='/assets/icons/dropdown-caret.svg'
-          alt='caret'
-          width={12}
-          height={12}
-          className='object-contain'
-        />
-      </div> */}
       <input
-        type='number'
+        type='tel'
         placeholder='+234 811 222 3333'
         className='px-4 py-3 border-0 text-base text-g-800 placeholder:text-g-500 w-full transition-all focus-visible:outline-0 focus-visible:border-black rounded-lg'
         {...restProps}
@@ -126,7 +115,7 @@ Form.Phone = function FormPhone ({
   )
 }
 
-Form.Date = function FormDate ({
+Form.Date = function FormDate({
   value,
   placeholder,
   ...restProps
@@ -162,7 +151,7 @@ Form.Date = function FormDate ({
   )
 }
 
-Form.Link = function FormLink ({
+Form.Link = function FormLink({
   id,
   ...props
 }: {
@@ -190,7 +179,7 @@ Form.Link = function FormLink ({
   )
 }
 
-Form.TextArea = function FormTextArea ({
+Form.TextArea = function FormTextArea({
   id,
   ...restProps
 }: {
@@ -208,24 +197,24 @@ Form.TextArea = function FormTextArea ({
   )
 }
 
-Form.Dropdown = function FormDropdown ({
+Form.Dropdown = function FormDropdown({
   value,
   options,
   onChange,
   placeholder,
   rightCustomIcon,
-  leftCustomIcon, 
+  leftCustomIcon,
   ...restProps
 }: {
   value: string
   placeholder: string
   options: { name: string; value: string }[]
-  onChange: (value:{name: string; value: string;}) => void
+  onChange: (value: { name: string; value: string; }) => void
   [x: string]: any
   rightCustomIcon?: ReactNode;
   leftCustomIcon?: ReactNode;
 }) {
-  const handleChange = (selected: {name: string; value: string;}) => {
+  const handleChange = (selected: { name: string; value: string; }) => {
     onChange(selected)
   }
 
@@ -237,9 +226,8 @@ Form.Dropdown = function FormDropdown ({
       <Dropdown
         head={
           <span
-            className={`font-normal ${
-              value ? 'text-g-500' : 'text-g-500'
-            }`}
+            className={`font-normal ${value ? 'text-g-500' : 'text-g-500'
+              }`}
           >
             {value || placeholder}
           </span>
@@ -264,7 +252,7 @@ Form.Dropdown = function FormDropdown ({
   )
 }
 
-Form.FileInput = function FileInput ({
+Form.FileInput = function FileInput({
   type,
   placeholder,
   id,
@@ -347,7 +335,7 @@ Form.FileInput = function FileInput ({
   )
 }
 
-Form.Submit = function FormSubmit ({
+Form.Submit = function FormSubmit({
   children,
   form,
   width,

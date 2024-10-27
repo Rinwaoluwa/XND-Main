@@ -115,7 +115,7 @@ const MobileSideBar: React.FC<IProps> = ({
               className={`${pathname === "/xnd-app" ? "text-white" : pathname === navlink.route ? "text-p-400" : "text-p-600"
                 }`}
             >
-              {navlink.name === "Become a merchant" ? (
+              {navlink.name === "Apply as merchant" ? (
                 <button className="p-3" onClick={handleShowMerchantForm}>
                   {navlink.name}
                 </button>
